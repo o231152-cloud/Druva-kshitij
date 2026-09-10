@@ -1,5 +1,5 @@
 // ==================== CONFIGURATION ====================
-const API_URL = 'https://endurance-snazzy-gown.ngrok-free.dev/api';
+const API_URL = 'https://druva-kshitij.onrender.com/api';
 
 // ==================== AUTHENTICATION ====================
 function login(username, password, role) {
