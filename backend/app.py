@@ -269,23 +269,13 @@ def get_skills():
 
 # ==================== RUN SERVER ====================
 if __name__ == '__main__':
+    import os
+    port = int(os.environ.get('PORT', 5000))
     print("=" * 60)
     print("🚀 AYUSH-SETU BACKEND SERVER STARTING...")
     print("=" * 60)
-    print("📍 Server URL: http://localhost:5000")
-    print("📍 API Base:   http://localhost:5000/api")
+    print(f"📍 Server URL: http://localhost:{port}")
+    print(f"📍 API Base:   http://localhost:{port}/api")
     print("=" * 60)
-    print("\n✅ Available Endpoints:")
-    print("   POST /api/login")
-    print("   POST /api/assessment")
-    print("   GET  /api/jobs")
-    print("   POST /api/post-job")
-    print("   GET  /api/candidates?skills=Python,React")
-    print("   GET  /api/faculty-programs")
-    print("   GET  /api/analytics")
-    print("   GET  /api/skill-gap")
-    print("   GET  /api/skills")
-    print("=" * 60)
-    print("\n💡 Press CTRL+C to stop the server\n")
     
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=False, host='0.0.0.0', port=port)
