@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | Ayush-Setu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo"><i class="fas fa-leaf"></i> AYUSH-SETU</div>
+        <ul class="nav-links">
+            <li><a href="student.html" class="active">Dashboard</a></li>
+            <li><a href="assessment.html">Skill Assessment</a></li>
+            <li><a href="index.html" class="logout" onclick="logout()">Logout</a></li>
+        </ul>
+        <div class="user-info"><i class="fas fa-user-circle"></i> Rahul Kumar</div>
+    </div>
+</nav>
+
+<div class="dashboard-container">
+    <div class="welcome-banner">
+        <h1>Welcome back, Rahul! 👋</h1>
+        <p>Your skill profile is 65% complete. Complete your assessment to get better matches.</p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <i class="fas fa-percentage"></i>
+            <div class="stat-info"><h3>40%</h3><p>Industry Match Score</p></div>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-bullseye"></i>
+            <div class="stat-info"><h3>3</h3><p>Job Matches</p></div>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-file-alt"></i>
+            <div class="stat-info"><h3>5</h3><p>Applications</p></div>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-award"></i>
+            <div class="stat-info"><h3>2</h3><p>Certifications</p></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2><i class="fas fa-clipboard-check"></i> Skill Assessment</h2>
+            <a href="assessment.html" class="btn btn-primary">Take Assessment</a>
+        </div>
+        <p>Take our AI-powered assessment to discover your skill gaps and get personalized recommendations.</p>
+    </div>
+
+    <div class="card">
+        <h2><i class="fas fa-chart-line"></i> Your Skill Gap Analysis</h2>
+        <div class="skills-comparison">
+            <div class="skills-column">
+                <h4>✅ Your Skills</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag have">Python</span>
+                    <span class="skill-tag have">Java</span>
+                    <span class="skill-tag have">HTML</span>
+                    <span class="skill-tag have">CSS</span>
+                </div>
+            </div>
+            <div class="skills-column">
+                <h4>🎯 Industry Needs</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag need">Python</span>
+                    <span class="skill-tag need">React</span>
+                    <span class="skill-tag need">AI/ML</span>
+                    <span class="skill-tag need">Docker</span>
+                    <span class="skill-tag need">AWS</span>
+                </div>
+            </div>
+            <div class="skills-column">
+                <h4>❌ Missing Skills</h4>
+                <div class="skill-tags">
+                    <span class="skill-tag missing">React</span>
+                    <span class="skill-tag missing">AI/ML</span>
+                    <span class="skill-tag missing">Docker</span>
+                    <span class="skill-tag missing">AWS</span>
+                </div>
+            </div>
+        </div>
+        <div class="progress-bar-container">
+            <label>Overall Match Score: <strong>40%</strong></label>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 40%;">40%</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2><i class="fas fa-briefcase"></i> Recommended Jobs</h2>
+        <div class="job-list" id="jobList">
+            <p>Loading jobs...</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2><i class="fas fa-book-open"></i> Recommended Learning Programs</h2>
+        <div class="learning-list">
+            <div class="learning-item">
+                <i class="fas fa-play-circle"></i>
+                <div><h4>React.js Complete Bootcamp</h4><p>By Meta | 40 hours | Free</p></div>
+                <button class="btn btn-primary btn-small">Enroll</button>
+            </div>
+            <div class="learning-item">
+                <i class="fas fa-play-circle"></i>
+                <div><h4>Machine Learning with Python</h4><p>By IBM | 60 hours | Free</p></div>
+                <button class="btn btn-primary btn-small">Enroll</button>
+            </div>
+            <div class="learning-item">
+                <i class="fas fa-play-circle"></i>
+                <div><h4>Docker & Kubernetes Fundamentals</h4><p>By AWS | 25 hours | Free</p></div>
+                <button class="btn btn-primary btn-small">Enroll</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2><i class="fas fa-file-alt"></i> Digital Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <span class="verified">✓ Verified</span>
+                <i class="fas fa-certificate"></i>
+                <h4>Python for Data Science</h4>
+                <p>Coursera | 2024</p>
+            </div>
+            <div class="portfolio-item">
+                <span class="verified">✓ Verified</span>
+                <i class="fas fa-project-diagram"></i>
+                <h4>E-Commerce Website</h4>
+                <p>Personal Project | 2024</p>
+            </div>
+            <div class="portfolio-item">
+                <span class="verified">✓ Verified</span>
+                <i class="fas fa-award"></i>
+                <h4>Smart India Hackathon</h4>
+                <p>Participant | 2024</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', loadStudentDashboard);
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Dashboard | Ayush-Setu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo"><i class="fas fa-leaf"></i> AYUSH-SETU</div>
+        <ul class="nav-links">
+            <li><a href="faculty.html" class="active">Dashboard</a></li>
+            <li><a href="index.html" class="logout" onclick="logout()">Logout</a></li>
+        </ul>
+        <div class="user-info"><i class="fas fa-chalkboard-teacher"></i> Dr. Sharma</div>
+    </div>
+</nav>
+
+<div class="dashboard-container">
+    <div class="welcome-banner faculty">
+        <h1>Welcome, Dr. Sharma! 👨‍🏫</h1>
+        <p>Explore industry opportunities, FDPs, and research collaborations</p>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <i class="fas fa-graduation-cap"></i>
+            <div class="stat-info"><h3>15</h3><p>Available FDPs</p></div>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-industry"></i>
+            <div class="stat-info"><h3>8</h3><p>Industry Internships</p></div>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-flask"></i>
+            <div class="stat-info"><h3>12</h3><p>Research Projects</p></div>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-handshake"></i>
+            <div class="stat-info"><h3>5</h3><p>Active Collaborations</p></div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2><i class="fas fa-graduation-cap"></i> Available Programs</h2>
+        <div class="job-list" id="programList">
+            <p>Loading programs...</p>
+        </div>
+    </div>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', loadFacultyDashboard);
+</script>
+</body>
+</html>

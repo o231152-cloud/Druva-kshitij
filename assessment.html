@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Assessment | Ayush-Setu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo"><i class="fas fa-leaf"></i> AYUSH-SETU</div>
+        <ul class="nav-links">
+            <li><a href="student.html">Dashboard</a></li>
+            <li><a href="assessment.html" class="active">Skill Assessment</a></li>
+            <li><a href="index.html" class="logout" onclick="logout()">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="assessment-container">
+    <div class="assessment-header">
+        <h1>🎯 Skill Assessment</h1>
+        <p>Answer the following questions to evaluate your skills</p>
+    </div>
+
+    <div class="question-card active" id="q1">
+        <h3>Q1. Which programming languages do you know?</h3>
+        <div class="options">
+            <label class="option"><input type="checkbox" value="Python" checked> Python</label>
+            <label class="option"><input type="checkbox" value="Java" checked> Java</label>
+            <label class="option"><input type="checkbox" value="JavaScript"> JavaScript</label>
+            <label class="option"><input type="checkbox" value="C++"> C++</label>
+        </div>
+        <button class="btn btn-primary" onclick="document.getElementById('q1').classList.remove('active');document.getElementById('q2').classList.add('active');">Next →</button>
+    </div>
+
+    <div class="question-card" id="q2">
+        <h3>Q2. Which web technologies do you know?</h3>
+        <div class="options">
+            <label class="option"><input type="checkbox" value="HTML" checked> HTML</label>
+            <label class="option"><input type="checkbox" value="CSS" checked> CSS</label>
+            <label class="option"><input type="checkbox" value="React"> React.js</label>
+            <label class="option"><input type="checkbox" value="Node.js"> Node.js</label>
+        </div>
+        <button class="btn btn-primary" onclick="document.getElementById('q2').classList.remove('active');document.getElementById('q3').classList.add('active');">Next →</button>
+    </div>
+
+    <div class="question-card" id="q3">
+        <h3>Q3. Do you have AI/ML experience?</h3>
+        <div class="options">
+            <label class="option"><input type="radio" name="aiml" value="Yes"> Yes</label>
+            <label class="option"><input type="radio" name="aiml" value="No" checked> No</label>
+        </div>
+        <button class="btn btn-primary" onclick="submitAssessmentFinal()">Submit Assessment</button>
+    </div>
+
+    <div class="question-card" id="result">
+        <h2>🎉 Assessment Complete!</h2>
+        <div id="resultContent">
+            <p>Analyzing your skills...</p>
+        </div>
+        <a href="student.html" class="btn btn-primary" style="margin-top: 20px;">Go to Dashboard</a>
+    </div>
+</div>
+
+<script src="js/app.js"></script>
+<script>
+    function submitAssessmentFinal() {
+        document.getElementById('q3').classList.remove('active');
+        document.getElementById('result').classList.add('active');
+        
+        // Call backend assessment API
+        fetch('http://localhost:5000/api/assessment', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                skills: ['Python', 'Java', 'HTML', 'CSS'],
+                career_interest: 'Software Developer'
+            })
+        })
+        .then(res => res.json())
+        .then(data => displayAssessmentResults(data))
+        .catch(err => {
+            document.getElementById('resultContent').innerHTML = '<p>Error connecting to server. Make sure backend is running.</p>';
+        });
+    }
+</script>
+</body>
+</html>
